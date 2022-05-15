@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Page</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+  
+    <div id="container"></div>
+</body>
+</html>
+<script>
+    var backdata=JSON.parse(localStorage.getItem("investors"))
+    console.log(backdata)
+
+    backdata.forEach(function(ele){
+      var box=document.createElement("div")
+    
+      var inv=document.createElement("h4")
+      inv.innerText=ele.name;
+
+      var pic=document.createElement("img")
+      pic.setAttribute("src",ele.log)
+      pic.style.width="80px";
+
+      var log=document.createElement("img");
+      log.setAttribute("src",ele.photo)
+     
+
+      var pos=document.createElement("h4")
+      pos.innerText=ele.rol;
+
+
+      box.append(log,inv,pos,pic)
+      document.querySelector("#container").append(box);
+   }) 
+</script>
