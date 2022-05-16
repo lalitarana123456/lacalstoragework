@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>backend</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <div id="navbar">
+        <div><a href="backend.html">backend</a></div>
+        <div><a href="frontend.html">frontend</a></div>
+    </div>
+    <form id="form">
+        <input id="name" type="text" placeholder="name">
+        <input id="pic" type="text" placeholder="imgURL">
+        <input id="logo" type="text" placeholder="cologo">
+        <input id="role" type="text" placeholder="role">
+        <input type="submit">
+    </form>
+</body>
+</html>
+<script>
+    document.querySelector("#form").addEventListener("submit",myfnc)
+    var back=JSON.parse(localStorage.getItem("investors"))||[];
+    function myfnc(){
+        event.preventDefault()
+        
+        var obj={
+            name:form.name.value,
+            photo:form.pic.value,
+            log:form.logo.value,
+            rol:form.role.value,
+        }
+        console.log(obj)
+        back.push(obj)
+        console.log(back)
+        localStorage.setItem("investors",JSON.stringify(back))
+    }
+</script>
